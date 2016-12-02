@@ -50,6 +50,10 @@ EOF
     ### [controller01] 禁用STONISH，否则资源无法启动
     echo "=== TRACE MESSAGE ===>>> " "禁用STONISH" | tee -a $log_file
     pcs property set stonith-enabled=false
+
+    ### [controller01] 警用QUORUM
+    echo "=== TRACE MESSAGE ===>>> " "禁用QUORUM" | tee -a $log_file
+    pcs property set no-quorum-policy=ignore
     
     ### [controller01]配置VIP资源，VIP可以在集群节点间浮动
     echo "=== TRACE MESSAGE ===>>> " "配置VIP资源，VIP可以在集群节点间浮动" | tee -a $log_file
