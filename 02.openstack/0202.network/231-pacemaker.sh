@@ -58,6 +58,12 @@ EOF
     ssh $network_0 /bin/bash << EOF
         pcs property set stonith-enabled=false
 EOF
+
+    ### [network01] 禁用QUORUM
+    echo "=== TRACE MESSAGE ===>>> " $network_0 "禁用QUORUM" | tee -a $log_file
+    ssh $network_0 /bin/bash << EOF
+        pcs property set stonith-enabled=false
+EOF
 }
 
 echo -n "confirm to install pacemaker [y|n]"
