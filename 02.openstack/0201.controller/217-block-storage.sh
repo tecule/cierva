@@ -58,11 +58,12 @@ EOF
     openstack endpoint create --region RegionOne volumev2 admin http://$virtual_ip:8776/v2/%\(tenant_id\)s >> $log_file
 
     # treat variable as an integer, arithmetic evaluation can be performed
-    declare -i cinder_host_suffix=0
+    # declare -i cinder_host_suffix=0
     for c in ${controllers[@]};
     do
-        cinder_host_suffix=$cinder_host_suffix+1
-        cinder_host="cinder-cluster-"$cinder_host_suffix
+        # cinder_host_suffix=$cinder_host_suffix+1
+        # cinder_host="cinder-cluster-"$cinder_host_suffix
+        cinder_host="cinder-ap-cluster"
 
         ### [所有控制节点]安装软件
         echo "=== TRACE MESSAGE ===>>> " $c ": 安装软件" | tee -a $log_file
